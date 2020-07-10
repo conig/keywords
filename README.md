@@ -13,7 +13,7 @@ diagrams
 
 ## Installation
 
-{keywords} isn’t yet on cran but you can get it from
+{keywords} isn’t yet on CRAN but you can get it from
 [GitHub](https://github.com/conig/keywords) using:
 
 ``` r
@@ -45,7 +45,7 @@ keywords(path_to_pdf,
          n = 5,
          topics = 1)
 #> $topic1
-#> [1] "indigenous" "drinking"   "australian" "health"     "patterns"
+#> [1] "indigenous" "drinking"   "australian" "risk"       "health"
 ```
 
 The example paper was a meta-analysis of Indigenous Australian drinking

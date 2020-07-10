@@ -22,7 +22,7 @@ You can use {keywords} to generate keywords for systematic reviews from PDF docu
 
 ## Installation
 
-{keywords} isn't yet on cran but you can get it from [GitHub](https://github.com/conig/keywords) using:
+{keywords} isn't yet on CRAN but you can get it from [GitHub](https://github.com/conig/keywords) using:
 
 ```{r eval = FALSE}
 # install.packages("remotes")
