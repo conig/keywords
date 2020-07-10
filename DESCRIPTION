@@ -1,0 +1,27 @@
+Package: keywords
+Title: Keyword generation from PDFs using topic modeling
+Version: 0.0.1
+Authors@R: 
+    person(given = "James",
+           family = "Conigrave",
+           role = c("aut", "cre"),
+           email = "james@conigrave.com",
+           comment = c(ORCID = "0000-0002-8816-6229"))
+Description: This package takes in PDF inputs and genrates keywords using topic modelling. Users can specfiy the numers of topics, and keywords per topic. Additionally a function is provided to create a systematic review flow diagram.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    tibble,
+    tm,
+    dplyr,
+    magrittr,
+    glue,
+    DiagrammeR,
+    tidytext,
+    pdftools,
+    topicmodels
+Suggests: 
+    webshot
