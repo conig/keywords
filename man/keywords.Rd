@@ -4,7 +4,7 @@
 \alias{keywords}
 \title{keywords}
 \usage{
-keywords(path, n = 5, topics = 2, ...)
+keywords(path = NULL, n = 5, topics = 2, corpus = NULL, ...)
 }
 \arguments{
 \item{path}{path to a PDF or folder containing PDFs}
@@ -12,6 +12,8 @@ keywords(path, n = 5, topics = 2, ...)
 \item{n}{the number of keywords per topic}
 
 \item{topics}{the number of topics}
+
+\item{corpus}{You can provide a vector of}
 
 \item{...}{additional arguments sent to pdf_words}
 }

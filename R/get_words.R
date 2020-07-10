@@ -5,6 +5,7 @@
 #' @param subfolders a bool. if true, subfolders included
 #' @param unnest_tokens a bool. If true, a dataset split into one word per row is returned.
 #' @param exclude words to exclude
+#' @export
 
 pdf_words = function(folder, subfolders = T, unnest_tokens = FALSE, exclude = c()){
 
@@ -36,9 +37,10 @@ pdf_words = function(folder, subfolders = T, unnest_tokens = FALSE, exclude = c(
     return(out)
   })
 
-
   corpus = do.call(rbind, corpus)
-  if(!unnest_tokens) return(corpus)
+
+  if(!unnest_tokens) return(stats::na.omit(corpus))
+
   stop_words = tibble::tibble(word = tm::stopwords(), lexicon = "NA")
 
   errors = corpus[is.na(corpus$content), "path"]
@@ -59,7 +61,7 @@ pdf_words = function(folder, subfolders = T, unnest_tokens = FALSE, exclude = c(
       dplyr::anti_join(stop_words)
   )
 
-  return(corpus)
+  stats::na.omit(corpus)
 
 }
 

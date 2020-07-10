@@ -2,5 +2,6 @@
 
 export("%>%")
 export(keywords)
+export(pdf_words)
 export(prisma)
 importFrom(magrittr,"%>%")
