@@ -22,6 +22,8 @@ Imports:
     DiagrammeR,
     tidytext,
     pdftools,
-    topicmodels
+    topicmodels,
+    future,
+    future.apply
 Suggests: 
     webshot
