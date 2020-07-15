@@ -2,6 +2,6 @@
 #'
 #' Opens asreview_oracle
 
-asreview_oracle <- function(){
+asreview <- function(){
   system("asreview oracle")
 }
