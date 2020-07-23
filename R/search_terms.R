@@ -3,12 +3,12 @@
 #' Constucts search terms
 #'
 #' @param ... a series of named vectors. They will be joined within by OR and between by AND
-#' @param database
+#' @param db a string for the database you want to generate terms for
 #' @details indicate adjacency using word1 w\n word2 e.g. ('search w\2 terms)' will return records where 'search' is within two words of 'terms'. This syntax will be modified for each database.
 #' @export search_terms
 
 search_terms = function(...,
-                        database = c("scopus" ,"ovid", "ebscohost", "webofscience")) {
+                        db = c("scopus" ,"ovid", "ebscohost", "webofscience")) {
   terms <- list(...)
 
   or <- lapply(terms, function(x) {
@@ -28,6 +28,6 @@ search_terms = function(...,
     webofscience = webofscience
   )
 
-  out[database]
+  out[db]
 
 }

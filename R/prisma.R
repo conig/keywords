@@ -26,6 +26,10 @@ prisma = function(
   requireNamespace("webshot", quietly = TRUE)
   requireNamespace("DiagrammeR", quietly = TRUE)
 
+  if(!webshot::is_phantomjs_installed()){
+    warning("PhantomJS is needed to include this diagram in a pdf. Install with webshot::install_phantomjs()")
+  }
+
   reasons_names = paste0(names(reasons), " ")
 
   reasons_total = sum(unlist(reasons))

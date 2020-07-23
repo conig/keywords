@@ -4,10 +4,12 @@
 \alias{search_terms}
 \title{search_terms}
 \usage{
-search_terms(..., database = c("scopus", "ovid", "ebscohost", "webofscience"))
+search_terms(..., db = c("scopus", "ovid", "ebscohost", "webofscience"))
 }
 \arguments{
 \item{...}{a series of named vectors. They will be joined within by OR and between by AND}
+
+\item{db}{a string for the database you want to generate terms for}
 }
 \description{
 Constucts search terms
