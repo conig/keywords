@@ -40,7 +40,8 @@ prisma = function(
   abstract_screened = after_duplicates_removed
   abstract_excluded = abstract_screened - fulltext_screened
 
-  if(ft_exclude != reasons_total) warning("The numbers of full-text excluded and reasons do not add up to the same number")
+  if(ft_exclude != reasons_total) warning("The numbers of full-text excluded (", ft_exclude,
+                                          ") and reasons (",reasons_total, ") do not add up to the same number")
 
   diagram_instructions = "
 
