@@ -1,5 +1,5 @@
 Package: keywords
-Title: Keyword generation from PDFs using topic modeling
+Title: Support functions for performing systematic reviews
 Version: 0.0.2
 Authors@R: 
     person(given = "James",

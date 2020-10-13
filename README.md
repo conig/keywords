@@ -7,9 +7,9 @@
 
 <!-- badges: end -->
 
-You can use {keywords} to generate keywords for systematic reviews from
-PDF documents. Additionally a function is included to produce PRISMA
-diagrams
+{keywords} is a package for supporting systematic reviews. Convert
+asreview csv exports to ris, generate PRISMA diagrams in R, and extract
+keywords from PDF.
 
 ## Installation
 
@@ -45,7 +45,7 @@ keywords(path_to_pdf,
          n = 5,
          topics = 1)
 #> $topic1
-#> [1] "indigenous" "drinking"   "australian" "risk"       "health"
+#> [1] "drinking"   "indigenous" "australian" "patterns"   "alcohol"
 ```
 
 The example paper was a meta-analysis of Indigenous Australian drinking
