@@ -27,6 +27,7 @@ asreview.csv_to_ris = function(csv, file){
     EP = "start_page",
     PY = "year",
     DO = "doi",
+    SN = "issn",
     N1 = "notes",
     AU = "authors")
 
