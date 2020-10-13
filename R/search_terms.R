@@ -18,7 +18,7 @@ search_terms = function(...,
   and <- paste(or, collapse = " AND ")
 
   scopus = glue::glue('TITLE-ABS-KEY({and})')
-  ovid = gsub("(w/)", "adj", glue::glue('({and}).ab,kw,ti'))
+  ovid = gsub("(w/)", "adj", glue::glue('({and}).mp'))
   ebscohost = gsub("(w/)", "N", glue::glue('({and})'))
   webofscience = gsub("(w/)", "NEAR/", glue::glue('TS=({and})'))
   out <- list(
