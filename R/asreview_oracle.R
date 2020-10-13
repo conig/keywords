@@ -15,7 +15,7 @@ asreview <- function(){
 #' @export
 
 oracle.csv_to_ris = function(csv, file){
-  dat <- utils::read.csv("C:/Users/james/Desktop/export_result.csv")
+  dat <- utils::read.csv(csv)
   dat = dat[which(dat$final_included == 1), 2:14]
   names(dat) = c("TY","TI","T2","VL","SP","EP","PY","DO","AU","N1","M3","DB","UR")
 
