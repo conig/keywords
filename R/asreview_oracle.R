@@ -14,10 +14,24 @@ asreview <- function(){
 #' @param file path to output
 #' @export
 
-oracle.csv_to_ris = function(csv, file){
+asreview.csv_to_ris = function(csv, file){
   dat <- utils::read.csv(csv)
-  dat = dat[which(dat$final_included == 1), 2:14]
-  names(dat) = c("TY","TI","T2","VL","SP","EP","PY","DO","AU","N1","M3","DB","UR")
+  dat = dat[which(dat$final_included == 1),]
+  dat <- dplyr::select(dat,
+    TY = "type_of_reference",
+    N2 = "abstract",
+    T1 = "title",
+    T2 = "short_title",
+    VL = "volume",
+    SP = "start_page",
+    EP = "start_page",
+    PY = "year",
+    DO = "doi",
+    N1 = "notes",
+    AU = "authors")
+
+    dat$SP = gsub("-.*","",dat$SP)
+    dat$EP = gsub(".*-","",dat$EP)
 
   ris_entry = function(x) {
     x_names = names(x)[names(x) != "AU"]
@@ -28,8 +42,8 @@ oracle.csv_to_ris = function(csv, file){
       ifelse(!grepl("\\.$", authors), paste0(authors, "."), authors)
 
     x_names <-
-      c(x_names[1:8], rep("AU", length(authors)), x_names[9:length(x_names)])
-    val_x = c(val_x[1:8], authors , val_x[9:length(val_x)])
+      c(x_names[1:5], rep("AU", length(authors)), x_names[5:length(x_names)])
+    val_x = c(val_x[1:5], authors , val_x[5:length(val_x)])
     paste0(paste(glue::glue("{x_names}  - {val_x}\n"), collapse = "\n"),
           "\nER  - ")
   }

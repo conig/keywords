@@ -2,8 +2,8 @@
 
 export("%>%")
 export(asreview)
+export(asreview.csv_to_ris)
 export(keywords)
-export(oracle.csv_to_ris)
 export(pdf_words)
 export(prisma)
 export(search_terms)
