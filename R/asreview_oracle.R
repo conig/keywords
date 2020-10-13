@@ -7,14 +7,14 @@ asreview <- function(){
   system("asreview oracle")
 }
 
-#' orcale.xlsx_to_ris
+#' oracle.csv_to_ris
 #'
 #' Converts an xlsx to bibtex
 #' @param csv path to the csv
 #' @param file path to output
 #' @export
 
-oracle.xlsx_to_ris = function(csv, file){
+oracle.csv_to_ris = function(csv, file){
   dat <- utils::read.csv("C:/Users/james/Desktop/export_result.csv")
   dat = dat[which(dat$final_included == 1), 2:14]
   names(dat) = c("TY","TI","T2","VL","SP","EP","PY","DO","AU","N1","M3","DB","UR")
