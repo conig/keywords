@@ -24,6 +24,8 @@ Imports:
     pdftools,
     topicmodels,
     future,
-    future.apply
+    future.apply,
+    stringdist,
+    revtools
 Suggests: 
     webshot
