@@ -26,6 +26,5 @@ Imports:
     future,
     future.apply,
     stringdist,
-    revtools
-Suggests: 
+    revtools,
     webshot
