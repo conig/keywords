@@ -16,3 +16,25 @@ simplify_authors = function(x, split = ",|&" ){
   })
   gsub("\\s\\s"," ", out)
 }
+
+#' apply_gsub
+#'
+#' Batch together gsub commands
+#' @param x vector of strings to modify
+#' @param ... list syntax, replacement = c("words", "to", "replace")
+#' @export
+#' @details using NULL as a replacement string will result in NAs
+
+apply_gsub = function(x, ...){
+  instructions <- list(...)
+  for(i in seq_along(instructions)){
+    to_replace = names(instructions)[i]
+    if(to_replace == "NULL"){
+      to_replace <- NA
+    }
+    x <- gsub(paste(instructions[[i]], collapse = "|"), to_replace, x)
+  }
+
+  x
+
+}
