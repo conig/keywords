@@ -15,5 +15,5 @@ search_terms(..., db = c("scopus", "ovid", "ebscohost", "webofscience"))
 Constucts search terms
 }
 \details{
-Indicate adjacency using word1 w\\n word2 e.g. ('search w\\2 terms)' will return records where 'search' is within two words of 'terms'. This syntax will be modified for each database.
+Indicate adjacency using word1 w/n word2 e.g. ('search w/2 terms)' will return records where 'search' is within two words of 'terms'. This syntax will be modified for each database.
 }

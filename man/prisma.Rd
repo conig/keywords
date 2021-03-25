@@ -20,7 +20,7 @@ prisma(
 
 \item{additional_records}{how many additional references}
 
-\item{after_duplicates_removed}{how many after duplicates removed}
+\item{after_duplicates_removed}{how many remaining after duplicates removed?}
 
 \item{fulltext_screened}{how many were full text screened}
 

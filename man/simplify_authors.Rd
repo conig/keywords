@@ -4,10 +4,12 @@
 \alias{simplify_authors}
 \title{simplify_authors}
 \usage{
-simplify_authors(x)
+simplify_authors(x, split = ",|&")
 }
 \arguments{
 \item{x}{a character vector of comma separated author surnames}
+
+\item{split}{regex rules by which to split up authors.}
 }
 \description{
 Reduce a list of authors to et al where appropriate
