@@ -4,13 +4,17 @@
 #'
 #' @param ... a series of named vectors. They will be joined within by OR and between by AND
 #' @param db a string for the database you want to generate terms for
+#' @param parens If TRUE, all terms are surrounded by parentheses
 #' @details Indicate adjacency using word1 w/n word2 e.g. ('search w/2 terms)' will return records where 'search' is within two words of 'terms'. This syntax will be modified for each database.
 #' @export search_terms
 
 search_terms = function(...,
-                        db = c("scopus" ,"ovid", "ebscohost", "webofscience")) {
+                        db = c("scopus" ,"ovid", "ebscohost", "webofscience"),
+                        parens = TRUE) {
   terms <- list(...)
-
+  if(parens){
+  terms[] <- lapply(terms, function(i) paste0("(",i,")"))
+  }
   or <- lapply(terms, function(x) {
     paste0("(", paste(x, collapse = " OR "), ")")
   })
