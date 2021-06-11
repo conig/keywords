@@ -43,7 +43,7 @@ names(reasons) <- names
 # final ---------------------
 final = extract("included", info)
 
-call <- as.call(list(database_records = database_records,
+call <- as.call(list(quote(keywords::prisma),database_records = database_records,
      additional_records = additional_records,
      after_duplicates_removed = after_duplicates_removed,
      fulltext_screened = fulltext_screened,
@@ -52,6 +52,5 @@ call <- as.call(list(database_records = database_records,
 
      ))
 
-call[[1]] <- quote(keywords::prisma)
 call
 }
