@@ -22,6 +22,7 @@ prisma = function(
   final = 0,
   reasons = list("reason1" = 0, "reason2" = 0),
   synthesis_description = "Studies included in\nquantitative synthesis",
+  synthesis_note = "",
   align = "r"
 ){
 
@@ -54,16 +55,16 @@ digraph boxes_and_circles {
   #add node statements
   node [shape = box]
 
-  A[label = 'Records identified\nthrough database\n searching\n(n = <[database_records]>)']
-  B[label = 'Additional records\nidentified through other\n sources\n(n = <[additional_records]>)']
-  C[label = 'Records after\nduplicates removed\n(n = <[after_duplicates_removed]>)']
+  A[label = 'Records identified\nthrough database\n searching\n(k = <[database_records]>)']
+  B[label = 'Additional records\nidentified through other\n sources\n(k = <[additional_records]>)']
+  C[label = 'Records after\nduplicates removed\n(k = <[after_duplicates_removed]>)']
 {rank = same; D E}
-  D[label = 'Records screened\n(n = <[abstract_screened]>)']
-  E[label = 'Records excluded\n(n = <[abstract_excluded]>)']
-  F[label = 'Full-text articles\nassessed for\neligibility\n(n = <[fulltext_screened]>)']
+  D[label = 'Records screened\n(k = <[abstract_screened]>)']
+  E[label = 'Records excluded\n(k = <[abstract_excluded]>)']
+  F[label = 'Full-text reports\nassessed for\neligibility\n(k = <[fulltext_screened]>)']
 {rank = same; F G}
-  G[label = 'Full-text articles excluded\n(n = <[ft_exclude]>)\n\n<[reasons]>\\<[align]>']
-  H[label = '<[synthesis_description]>\n(n = <[final]>)']
+  G[label = 'Full-text reports excluded\n(k = <[ft_exclude]>)\n\n<[reasons]>\\<[align]>']
+  H[label = '<[synthesis_description]>\n(k = <[final]>)<[synthesis_note]>']
 
   #add edge statements
   A->C; B->C; C->D;D->F; D->E; F->G; F->H

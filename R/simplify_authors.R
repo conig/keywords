@@ -6,9 +6,9 @@
 #' @export
 
 simplify_authors = function(x, split = ",|&" ){
-
   y <- strsplit(x, split = split)
   out <- lapply(y, function(i){
+    if(length(i) == 0) return(NA)
     i <- gsub("\\,.*","",i)
     if(length(i) == 1) return(i)
     if(length(i) == 2) return(paste(i, collapse = " & "))
