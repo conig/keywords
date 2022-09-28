@@ -53,7 +53,8 @@ digraph boxes_and_circles {
   graph [overlap = true]
 
   #add node statements
-  node [shape = box]
+  node [shape = box, width = 2.3,
+         height = 1.3, fontsize = 17]
 
   A[label = 'Records identified\nthrough database\n searching\n(k = <[database_records]>)']
   B[label = 'Additional records\nidentified through other\n sources\n(k = <[additional_records]>)']
