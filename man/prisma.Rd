@@ -10,9 +10,11 @@ prisma(
   after_duplicates_removed = 0,
   fulltext_screened = 0,
   final = 0,
-  reasons = list(reason1 = 0, reason2 = 0),
+  reasons = list(`reason 1` = 0, `reason 2` = 0),
   synthesis_description = "Studies included in\\nquantitative synthesis",
-  align = "r"
+  synthesis_note = "",
+  align = "r",
+  path = NULL
 )
 }
 \arguments{
@@ -31,6 +33,8 @@ prisma(
 \item{synthesis_description}{Text to describe synthesis}
 
 \item{align}{'r' (right alignment) or 'l' (left alignment)}
+
+\item{path}{logical. If TRUE, diagram will be saved to image at the desired location. Ext must be pdf, svg, or png}
 }
 \description{
 Create a PRISMA diagram for a meta-analysis

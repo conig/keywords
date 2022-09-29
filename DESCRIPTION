@@ -1,6 +1,6 @@
 Package: keywords
 Title: Support functions for performing systematic reviews
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: 
     person(given = "James",
            family = "Conigrave",
@@ -12,7 +12,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.1
 Imports: 
     tibble,
     tm,
@@ -27,4 +27,5 @@ Imports:
     future.apply,
     stringdist,
     revtools,
-    webshot
+    webshot,
+    rsvg

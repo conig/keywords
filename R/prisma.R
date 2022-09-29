@@ -12,6 +12,8 @@
 #' @param reasons a named list of reasons list("reason" = 0)
 #' @param synthesis_description Text to describe synthesis
 #' @param align 'r' (right alignment) or 'l' (left alignment)
+#' @param path logical. If TRUE, diagram will be saved to image at the desired location. Ext must be pdf, svg, or png
+#' @value grViz htmlwidget
 #' @export
 
 prisma = function(
@@ -20,10 +22,11 @@ prisma = function(
   after_duplicates_removed = 0,
   fulltext_screened = 0,
   final = 0,
-  reasons = list("reason1" = 0, "reason2" = 0),
+  reasons = list("reason 1" = 0, "reason 2" = 0),
   synthesis_description = "Studies included in\nquantitative synthesis",
   synthesis_note = "",
-  align = "r"
+  align = "r",
+  path = NULL
 ){
 
   requireNamespace("webshot", quietly = TRUE)
@@ -48,13 +51,15 @@ prisma = function(
 
   diagram_instructions = "
 
-digraph boxes_and_circles {
-  #graph statement
-  graph [overlap = true]
+digraph G {
+
+  graph [
+    charset = 'UTF-8'
+  ]
 
   #add node statements
-  node [shape = box, width = 2.3,
-         height = 1.3, fontsize = 17]
+  node [shape = box, width = 2.2,
+         height = 1.3, fontsize = 13]
 
   A[label = 'Records identified\nthrough database\n searching\n(k = <[database_records]>)']
   B[label = 'Additional records\nidentified through other\n sources\n(k = <[additional_records]>)']
@@ -73,8 +78,31 @@ digraph boxes_and_circles {
 }
                   "
 diagram_instructions = as.character(glue::glue(diagram_instructions, .open = "<[", .close = "]>"))
-DiagrammeR::grViz(diagram_instructions,
-                  height = 1300, engine = "neato")
+
+diagram <- DiagrammeR::grViz(diagram_instructions, engine = "neato")
+
+if(!is.null(path)){
+
+  ext <- tolower(tools::file_ext(path))
+  if(!ext %in% c("svg", "pdf", "png")){
+    cli::cli_abort("path extention must be one of ['svg', 'pdf', 'png']")
+  }
+  temppath <- tempfile(fileext = ".svg")
+  write(DiagrammeRsvg::export_svg(diagram), temppath)
+
+  fn <- list(
+    "svg" = rsvg::rsvg_svg,
+    "png" = rsvg::rsvg_png,
+    "pdf" = rsvg::rsvg_pdf
+  )
+
+  fn[[ext]](temppath, path)
+
+
+}else{
+  diagram
+}
+
 
 }
 

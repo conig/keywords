@@ -7,7 +7,8 @@
 search_terms(
   ...,
   db = c("scopus", "ovid", "ebscohost", "webofscience"),
-  parens = TRUE
+  parens = TRUE,
+  term_combine = NULL
 )
 }
 \arguments{
@@ -16,6 +17,8 @@ search_terms(
 \item{db}{a string for the database you want to generate terms for}
 
 \item{parens}{If TRUE, all terms are surrounded by parentheses}
+
+\item{term_combine}{a named list of glue statements e.g. "({term1}) w/3 ({term2})"}
 }
 \description{
 Constucts search terms
