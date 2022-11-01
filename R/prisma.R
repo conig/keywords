@@ -39,7 +39,8 @@ prisma = function(
   reasons_names = paste0(names(reasons), " ")
 
   reasons_total = sum(unlist(reasons))
-  reasons <- as.character(paste(glue::glue("{names(reasons)}: {unlist(reasons)}"), collapse = glue::glue("\\{align}")))
+  display <- function(x) format(x, big.mark = ",")
+  reasons <- as.character(paste(glue::glue("{names(reasons)}: {display(unlist(reasons))}"), collapse = glue::glue("\\{align}")))
 
 
   ft_exclude = fulltext_screened - final
@@ -48,6 +49,7 @@ prisma = function(
 
   if(ft_exclude != reasons_total) warning("The numbers of full-text excluded (", ft_exclude,
                                           ") and reasons (",reasons_total, ") do not add up to the same number")
+
 
   diagram_instructions = "
 
@@ -59,18 +61,18 @@ digraph G {
 
   #add node statements
   node [shape = box, width = 2.2,
-         height = 1.3, fontsize = 13]
+         height = 1.1, fontsize = 13]
 
-  A[label = 'Records identified\nthrough database\n searching\n(k = <[database_records]>)']
-  B[label = 'Additional records\nidentified through other\n sources\n(k = <[additional_records]>)']
-  C[label = 'Records after\nduplicates removed\n(k = <[after_duplicates_removed]>)']
+  A[label = 'Records identified\nthrough database\n searching\n(k = <[display(database_records)]>)']
+  B[label = 'Additional records\nidentified through other\n sources\n(k = <[display(additional_records)]>)']
+  C[label = 'Records after\nduplicates removed\n(k = <[display(after_duplicates_removed)]>)']
 {rank = same; D E}
-  D[label = 'Records screened\n(k = <[abstract_screened]>)']
-  E[label = 'Records excluded\n(k = <[abstract_excluded]>)']
-  F[label = 'Full-text reports\nassessed for\neligibility\n(k = <[fulltext_screened]>)']
+  D[label = 'Records screened\n(k = <[display(abstract_screened)]>)']
+  E[label = 'Records excluded\n(k = <[display(abstract_excluded)]>)']
+  F[label = 'Full-text reports\nassessed for\neligibility\n(k = <[display(fulltext_screened)]>)']
 {rank = same; F G}
   G[label = 'Full-text reports excluded\n(k = <[ft_exclude]>)\n\n<[reasons]>\\<[align]>']
-  H[label = '<[synthesis_description]>\n(k = <[final]>)<[synthesis_note]>']
+  H[label = '<[synthesis_description]>\n(k = <[final]>)<[display(synthesis_note)]>']
 
   #add edge statements
   A->C; B->C; C->D;D->F; D->E; F->G; F->H
